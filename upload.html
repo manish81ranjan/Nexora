@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Your Photo | Nexora</title>
+  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="navbar.css" >
+  <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">NEXORA</div>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Summer</a></li>
+        <li><a href="#">Try with AI</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+    <div class="cart-icon">🛒</div>
+  </header>
+
+  <!-- Upload Section -->
+  <section class="upload-section">
+    <h2>Upload Your Photo</h2>
+    <p>We’ll use AI to analyze your body and show clothing that suits you best.</p>
+
+    <div class="upload-box">
+      <input type="file" id="imageInput" accept="image/*" />
+      <div class="image-preview" id="imagePreview">
+        <span>No image selected</span>
+      </div>
+      <button id="continueBtn" disabled>Continue</button>
+    </div>
+  </section>
+
+  <script src="navbar.js"></script>
+  <script src="upload.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
