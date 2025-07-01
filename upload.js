@@ -27,3 +27,7 @@ continueBtn.addEventListener("click", () => {
   // For now, go to recommendation page (fake)
   window.location.href = "recommendation.html"; // Create this page later
 });
+
+// 
+
+
