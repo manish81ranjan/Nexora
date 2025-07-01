@@ -25,11 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   continueBtn.addEventListener("click", () => {
-    // Optional: show a loading message or animation here
-    // alert("Sending image to AI model...");
+  const imgSrc = document.querySelector("#imagePreview img")?.src;
+  if (imgSrc) {
+    localStorage.setItem("nexoraUploadedImage", imgSrc);
+  }
 
-    window.location.href = "recommendation.html";
-  });
+  window.location.href = "processing.html";
+});
 });
 
 if (file && file.type.startsWith("image/")) {
@@ -45,3 +47,6 @@ if (file && file.type.startsWith("image/")) {
   imagePreview.innerHTML = "<span>No image selected</span>";
   continueBtn.disabled = true;
 }
+
+// In upload.js after user selects photo
+localStorage.setItem("nexoraUserBodyType", "slim"); // Just an example
