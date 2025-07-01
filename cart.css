@@ -1,0 +1,233 @@
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+.cart-sidebar.open {
+  right: 0;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+.cart-items {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+.cart-footer {
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+}
+.cart-actions button {
+  margin-right: 10px;
+  padding: 10px 15px;
+  background: #ff416c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#cart-count {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  vertical-align: top;
+}
+#cart-icon {
+  cursor: pointer;
+}
+#cart-icon:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+#close-cart {
+  cursor: pointer;
+}
+#close-cart:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.qty-btn {
+  padding: 4px 10px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.qty-btn:hover {
+  background: #e91e63;
+}
+
+.qty-count {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  background-color: #111;
+  color: #fff;
+  border-bottom: 1px solid #444;
+}
+
+.close-cart {
+  font-size: 22px;
+  font-weight: bold;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-cart:hover {
+  transform: scale(1.3) rotate(90deg);
+  color: #e91e63;
+}
+
+/* Cart Items Container */
+.cart-items {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 16px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Individual Cart Item */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Image */
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Item Details (name + price + qty) */
+.cart-item div {
+  flex: 1;
+}
+
+/* Product Name + Price */
+.cart-item p:first-child {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.cart-item p:nth-child(2) {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* Remove Button */
+.cart-item button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.cart-item button:hover {
+  color: #e91e63;
+  transform: scale(1.2);
+}
+
+/* Quantity Buttons Styling (reuse earlier style) */
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qty-btn {
+  padding: 4px 10px;
+  font-size: 16px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.qty-btn:hover {
+  background: #e91e63;
+}
+
+.qty-count {
+  font-weight: 600;
+  font-size: 14px;
+}
+.cart-items::-webkit-scrollbar {
+  width: 6px;
+}
+.cart-items::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 6px;
+}
+
+/* Cart Sidebar Wrapper */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* When cart is open */
+.cart-sidebar.open {
+  right: 0;
+}
