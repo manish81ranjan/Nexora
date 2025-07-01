@@ -8,99 +8,108 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let cart = JSON.parse(localStorage.getItem('nexoraCart')) || [];
 
+  function saveCart() {
+    localStorage.setItem('nexoraCart', JSON.stringify(cart));
+  }
+
   function updateCartUI() {
     cartItemsContainer.innerHTML = '';
     let total = 0;
-
     cart.forEach((item, index) => {
+      const quantity = item.quantity || 1;
+      const price = parseFloat(item.price);
+      const subtotal = price * quantity;
+      total += subtotal;
+
       const div = document.createElement('div');
       div.className = 'cart-item';
       div.innerHTML = `
-        <img src="${item.img}" width="50" />
-        <div>
+        <img src="${item.img}" alt="${item.name}" />
+        <div class="cart-item-details">
           <p>${item.name}</p>
-          <p>₹${item.price}</p>
-          <div class="qty-controls">
-            <button class="qty-btn" onclick="decreaseQty(${index})">−</button>
-            <span class="qty-count">${item.qty}</span>
-            <button class="qty-btn" onclick="increaseQty(${index})">+</button>
+          <p>₹${price}</p>
+          <div class="quantity-controls">
+            <button class="decrease" data-index="${index}">−</button>
+            <span>${quantity}</span>
+            <button class="increase" data-index="${index}">+</button>
           </div>
         </div>
-        <button onclick="removeFromCart(${index})">❌</button>
+        <button class="remove-item" data-index="${index}">❌</button>
       `;
       cartItemsContainer.appendChild(div);
-      total += parseFloat(item.price) * item.qty;
     });
 
     cartSubtotal.innerText = total.toFixed(2);
-    cartCount.innerText = cart.reduce((sum, item) => sum + item.qty, 0);
+    cartCount && (cartCount.innerText = cart.length);
+
+    // Attach event listeners for quantity controls and remove buttons
+    document.querySelectorAll('.remove-item').forEach(button => {
+      button.addEventListener('click', () => {
+        const index = button.dataset.index;
+        cart.splice(index, 1);
+        saveCart();
+        updateCartUI();
+      });
+    });
+
+    document.querySelectorAll('.increase').forEach(button => {
+      button.addEventListener('click', () => {
+        const index = button.dataset.index;
+        cart[index].quantity = (cart[index].quantity || 1) + 1;
+        saveCart();
+        updateCartUI();
+      });
+    });
+
+    document.querySelectorAll('.decrease').forEach(button => {
+      button.addEventListener('click', () => {
+        const index = button.dataset.index;
+        cart[index].quantity = (cart[index].quantity || 1) - 1;
+        if (cart[index].quantity <= 0) cart.splice(index, 1);
+        saveCart();
+        updateCartUI();
+      });
+    });
   }
 
   function addToCart(product) {
-    const existingIndex = cart.findIndex(item => item.name === product.name);
-    if (existingIndex !== -1) {
-      cart[existingIndex].qty += 1;
+    const existing = cart.find(item => item.name === product.name);
+    if (existing) {
+      existing.quantity = (existing.quantity || 1) + 1;
     } else {
-      product.qty = 1;
+      product.quantity = 1;
       cart.push(product);
     }
-    localStorage.setItem('nexoraCart', JSON.stringify(cart));
+    saveCart();
     updateCartUI();
+    cartSidebar.classList.add('open');
   }
 
-  function removeFromCart(index) {
-    cart.splice(index, 1);
-    localStorage.setItem('nexoraCart', JSON.stringify(cart));
-    updateCartUI();
-  }
-
-  window.increaseQty = function(index) {
-    cart[index].qty += 1;
-    localStorage.setItem('nexoraCart', JSON.stringify(cart));
-    updateCartUI();
-  }
-
-  window.decreaseQty = function(index) {
-    if (cart[index].qty > 1) {
-      cart[index].qty -= 1;
-    } else {
-      cart.splice(index, 1);
-    }
-    localStorage.setItem('nexoraCart', JSON.stringify(cart));
-    updateCartUI();
-  }
-
+  // Handle Buy Now buttons from both index.html and recommendation.html
   document.querySelectorAll('.buy-btn').forEach(button => {
     button.addEventListener('click', e => {
-      const card = e.target.closest('.product-card');
+      const card = e.target.closest('.product-card, .outfit-card');
+      if (!card) return;
+
       const product = {
         name: card.dataset.name,
         price: card.dataset.price,
-        img: card.dataset.img
+        img: card.dataset.img,
+        quantity: 1
       };
       addToCart(product);
-      cartSidebar.classList.add('open');
     });
   });
 
-  cartIcon.addEventListener('click', () => {
+  // Toggle cart sidebar
+  cartIcon?.addEventListener('click', () => {
     cartSidebar.classList.toggle('open');
   });
 
-  closeCartBtn.addEventListener('click', () => {
+  closeCartBtn?.addEventListener('click', () => {
     cartSidebar.classList.remove('open');
   });
 
+  // Initial load
   updateCartUI();
 });
-
-const buyNowBtn = document.getElementById('buy-now-btn');
-const checkoutBtn = document.getElementById('checkout-btn');
-
-function closeCartAfterAction() {
-  cartSidebar.classList.remove('open');
-  alert('Thank you! Proceeding to checkout...');
-}
-
-buyNowBtn?.addEventListener('click', closeCartAfterAction);
-checkoutBtn?.addEventListener('click', closeCartAfterAction);
