@@ -29,27 +29,45 @@
       </ul>
     </nav>
     <div class="hamburger" id="hamburger">&#9776;</div>
-    <div class="cart-icon">🛒</div>
+    <div class="cart-icon" id="cart-icon">🛒<span id="cart-count">0</span></div>
   </header>
 
   <!-- Recommendation Section -->
   <section class="recommendation-section">
     <h2>AI-Powered Outfit Suggestions</h2>
-    <p>Based on your uploaded photo, here are outfits that suit you best:</p>
+    <p>Based on your uploaded photo, here's a preview:</p>
 
     <div class="model-preview">
-      <div class="model-preview">
-        <div class="model-block">
-          <h4>Your Uploaded Photo</h4>
-          <img id="user-image" src="" alt="Your Image" />
-        </div>
-        <div class="model-block">
-          <h4>AI Generated Model</h4>
-          <img src="images/ai-model-placeholder.jpg" alt="AI Model" />
-        </div>
+      <div class="model-block">
+        <h4>Your Uploaded Photo</h4>
+        <img id="user-image" src="" alt="Your Image" />
       </div>
-
+      <div class="model-block">
+        <h4>AI Generated Model</h4>
+        <img src="images/ai-model.jpg" alt="AI Model" />
+      </div>
     </div>
+
+    <div class="filters">
+      <label for="styleFilter">Filter by Style:</label>
+      <select id="styleFilter">
+        <option value="all">All</option>
+        <option value="casual">Casual</option>
+        <option value="formal">Formal</option>
+        <option value="summer">Summer</option>
+        <option value="winter">Winter</option>
+      </select>
+    </div>
+    <div class="sort-options">
+  <label for="sortSelect">Sort by:</label>
+  <select id="sortSelect">
+    <option value="default">Default</option>
+    <option value="priceLow">Price: Low to High</option>
+    <option value="priceHigh">Price: High to Low</option>
+    <option value="scoreHigh">AI Score: High to Low</option>
+  </select>
+</div>
+
 
     <div class="suggestions">
       <div class="outfit-card" data-name="Classic Jacket" data-price="2299" data-img="https://via.placeholder.com/200">
