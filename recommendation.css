@@ -90,3 +90,77 @@
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
+
+.outfit-card .tag {
+  background: #ff6b6b;
+  color: white;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 4px 0;
+}
+
+.outfit-card .score {
+  font-size: 13px;
+  color: #555;
+}
+
+.model-preview {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.model-block {
+  text-align: center;
+  flex: 1 1 300px;
+}
+
+.model-block h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.model-block img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.filters {
+  text-align: center;
+  margin: 30px auto 10px;
+}
+
+.filters label {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.filters select {
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.sort-options {
+  text-align: center;
+  margin: 10px auto 30px;
+}
+
+.sort-options label {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.sort-options select {
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
