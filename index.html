@@ -1,85 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NEXORA | AI Fashion</title>
-  <link rel="stylesheet" href="style.css" >
-  <link rel="stylesheet" href="navbar.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEXORA | AI Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="cart.css">
 </head>
+
 <body>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">NEXORA</div>
-    <nav class="nav-links">
-      <ul>
-        <li><a href="#">Men</a></li>
-        <li><a href="#">Women</a></li>
-        <li><a href="#">Summer</a></li>
-        <li><a href="#">Winter</a></li>
-        <li><a href="#">Try with AI</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger" id="hamburger">&#9776;</div>
-    <div class="cart-icon">🛒</div>
-  </header>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">NEXORA</div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Summer</a></li>
+                <li><a href="#">Winter</a></li>
+                <li><a href="#">Try with AI</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <div class="cart-icon" id="cart-icon">🛒<span id="cart-count">0</span></div>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Style Meets Technology</h1>
-      <p>Discover clothes that fit *you* — powered by AI</p>
-      <a href="#" class="cta-button">Try with AI</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Style Meets Technology</h1>
+            <p>Discover clothes that fit *you* — powered by AI</p>
+            <a href="#" class="cta-button">Try with AI</a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card">Men</div>
+            <div class="category-card">Women</div>
+            <div class="category-card">Summer</div>
+            <div class="category-card">Winter</div>
+        </div>
+    </section>
+
+    <!-- AI Info -->
+    <section class="ai-info reveal-on-scroll">
+        <h2>AI-Powered Styling</h2>
+        <p>Upload your photo. Let AI suggest the perfect outfit for your body shape.</p>
+        <a href="upload.html" class="cta-button">Upload Image</a>
+    </section>
+
+    <!-- Products -->
+    <section class="products">
+        <h2>Trending Now</h2>
+        <div class="product-grid">
+            <div class="product-card" data-name="Stylish Jacket" data-price="1999"
+                data-img="https://via.placeholder.com/200">
+                <img src="https://via.placeholder.com/200" alt="Jacket" />
+                <h3>Stylish Jacket</h3>
+                <p>₹1,999</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="product-card" data-name="Summer Dress" data-price="1499"
+                data-img="https://via.placeholder.com/200">
+                <img src="https://via.placeholder.com/200" alt="Dress" />
+                <h3>Summer Dress</h3>
+                <p>₹1,499</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+            <div class="product-card" data-name="Casual T-Shirt" data-price="799"
+                data-img="https://via.placeholder.com/200">
+                <img src="https://via.placeholder.com/200" alt="T-shirt" />
+                <h3>Casual T-Shirt</h3>
+                <p>₹799</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="close-cart" id="close-cart">×</span>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <p>Subtotal: ₹<span id="cart-subtotal">0</span></p>
+            <div class="cart-actions">
+                <button id="buy-now-btn">Buy Now</button>
+                <button id="checkout-btn">Checkout</button>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- Categories -->
-  <section class="categories">
-    <h2>Shop by Category</h2>
-    <div class="category-grid">
-      <div class="category-card">Men</div>
-      <div class="category-card">Women</div>
-      <div class="category-card">Summer</div>
-      <div class="category-card">Winter</div>
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Nexora. All rights reserved.</p>
+    </footer>
 
-  <!-- AI Info -->
-  <section class="ai-info reveal-on-scroll">
-    <h2>AI-Powered Styling</h2>
-    <p>Upload your photo. Let AI suggest the perfect outfit for your body shape.</p>
-    <a href="upload.html" class="cta-button">Upload Image</a>
-  </section>
-
-  <!-- Products -->
-  <section class="products">
-    <h2>Trending Now</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200" alt="Jacket" />
-        <h3>Stylish Jacket</h3>
-        <p>₹1,999</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200" alt="Dress" />
-        <h3>Summer Dress</h3>
-        <p>₹1,499</p>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200" alt="T-shirt" />
-        <h3>Casual T-Shirt</h3>
-        <p>₹799</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 Nexora. All rights reserved.</p>
-  </footer>
-
-  <script src="navbar.js"></script>
-  <script src="script.js"></script>
+    <script src="navbar.js"></script>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
 </body>
+
 </html>
