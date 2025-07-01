@@ -12,3 +12,4 @@ hamburger.addEventListener('click', () => {
     hamburger.textContent = '☰'; // open icon
   }
 });
+
