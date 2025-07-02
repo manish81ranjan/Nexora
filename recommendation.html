@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Recommendations | Nexora</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="navbar.css" />
+  <link rel="stylesheet" href="recommendation.css" />
+  <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+  <div class="upload-success">
+    ✅ We’ve processed your image and selected the best outfits for you!
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">NEXORA</div>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="index.html">Men</a></li>
+        <li><a href="index.html">Women</a></li>
+        <li><a href="index.html">Summer</a></li>
+        <li><a href="index.html">Winter</a></li>
+        <li><a href="upload.html">Try with AI</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+    <div class="cart-icon" id="cart-icon">🛒<span id="cart-count">0</span></div>
+  </header>
+
+  <!-- Recommendation Section -->
+  <section class="recommendation-section">
+    <h2>AI-Powered Outfit Suggestions</h2>
+    <p>Based on your uploaded photo, here's a preview:</p>
+
+    <div class="model-preview">
+      <div class="model-block">
+        <h4>Your Uploaded Photo</h4>
+        <img id="user-image" src="" alt="Your Image" />
+      </div>
+      <div class="model-block">
+        <h4>AI Generated Model</h4>
+        <img src="images/ai-model.jpg" alt="AI Model" />
+      </div>
+    </div>
+
+    <div class="filters">
+      <label for="styleFilter">Filter by Style:</label>
+      <select id="styleFilter">
+        <option value="all">All</option>
+        <option value="casual">Casual</option>
+        <option value="formal">Formal</option>
+        <option value="summer">Summer</option>
+        <option value="winter">Winter</option>
+      </select>
+    </div>
+    <div class="sort-options">
+  <label for="sortSelect">Sort by:</label>
+  <select id="sortSelect">
+    <option value="default">Default</option>
+    <option value="priceLow">Price: Low to High</option>
+    <option value="priceHigh">Price: High to Low</option>
+    <option value="scoreHigh">AI Score: High to Low</option>
+  </select>
+</div>
+
+
+    <div class="suggestions">
+      <div class="outfit-card" data-name="Classic Jacket" data-price="2299" data-img="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/200" alt="Outfit 1" />
+        <h3>Classic Jacket</h3>
+        <p>₹2,299</p>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+
+      <div class="outfit-card" data-name="Classic Jacket" data-price="2299" data-img="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/200" alt="Outfit 1" />
+        <h3>Classic Jacket</h3>
+        <p>₹2,299</p>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+      <div class="outfit-card" data-name="Classic Jacket" data-price="2299" data-img="https://via.placeholder.com/200">
+        <img src="https://via.placeholder.com/200" alt="Outfit 1" />
+        <h3>Classic Jacket</h3>
+        <p>₹2,299</p>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <span class="close-cart" id="close-cart">×</span>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <p>Subtotal: ₹<span id="cart-subtotal">0</span></p>
+      <div class="cart-actions">
+        <button>Buy Now</button>
+        <button>Checkout</button>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Nexora. All rights reserved.</p>
+  </footer>
+
+  <script src="navbar.js"></script>
+  <script src="recommendation.js"></script>
+  <script src="cart.js"></script>
+</body>
+
+</html>
