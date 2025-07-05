@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="cart.css">
+
+
 </head>
 
 <body>
@@ -17,11 +19,11 @@
         <div class="logo">NEXORA</div>
         <nav class="nav-links">
             <ul>
-                <li><a href="#">Men</a></li>
+                <li><a href="men.html" class="active">Men</a></li>
                 <li><a href="#">Women</a></li>
                 <li><a href="#">Summer</a></li>
                 <li><a href="#">Winter</a></li>
-                <li><a href="#">Try with AI</a></li>
+                <li><a href="test.html">Try with AI</a></li>
             </ul>
         </nav>
         <div class="hamburger" id="hamburger">&#9776;</div>
@@ -29,11 +31,27 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <!-- <section class="hero">
         <div class="hero-content">
             <h1>Style Meets Technology</h1>
             <p>Discover clothes that fit *you* — powered by AI</p>
-            <a href="#" class="cta-button">Try with AI</a>
+            <a href="test.html" class="cta-button">Try with AI</a>
+        </div>
+    </section> -->
+    <section class="hero-carousel">
+        <div class="carousel-container">
+            <img src="img1.jpg" class="carousel-slide active" alt="Slide 1">
+            <img src="img2.jpg" class="carousel-slide" alt="Slide 2">
+            <img src="img3.jpg" class="carousel-slide" alt="Slide 3">
+            <img src="img4.jpg" class="carousel-slide" alt="Slide 4">
+            <img src="img5.jpg" class="carousel-slide" alt="Slide 5">
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
         </div>
     </section>
 
@@ -41,12 +59,13 @@
     <section class="categories">
         <h2>Shop by Category</h2>
         <div class="category-grid">
-            <div class="category-card">Men</div>
+            <a href="men.html"><div class="category-card"><span>Men</span></div></a>
             <div class="category-card">Women</div>
             <div class="category-card">Summer</div>
             <div class="category-card">Winter</div>
         </div>
     </section>
+
 
     <!-- AI Info -->
     <section class="ai-info reveal-on-scroll">
@@ -56,30 +75,47 @@
     </section>
 
     <!-- Products -->
-    <section class="products">
-        <h2>Trending Now</h2>
-        <div class="product-grid">
-            <div class="product-card" data-name="Stylish Jacket" data-price="1999"
-                data-img="https://via.placeholder.com/200">
-                <img src="https://via.placeholder.com/200" alt="Jacket" />
-                <h3>Stylish Jacket</h3>
-                <p>₹1,999</p>
-                <button class="buy-btn">Buy Now</button>
+    <section class="product-filter-section">
+        <h2>New and Popular</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">ALL</button>
+            <button class="filter-btn" data-category="shirts">SHIRTS</button>
+            <button class="filter-btn" data-category="trousers">TROUSERS</button>
+            <button class="filter-btn" data-category="t-shirts">T-SHIRTS</button>
+            <button class="filter-btn" data-category="jeans">JEANS</button>
+            <button class="filter-btn" data-category="shorts">SHORTS</button>
+        </div>
+
+        <div class="product-grid" id="filtered-products">
+            <div class="product-card" data-category="shirts">
+                <div  data-name="Slim Fit Shirt" data-price="1299"
+                    data-img="img1.jpg"></div>
+                <img src="img1.jpg" alt="Shirt">
+                <p class="product-title">Slim Fit Shirt</p>
+                <p class="product-price">₹1,299</p>
+                <button class="buy-btn">Add to Cart</button>
             </div>
-            <div class="product-card" data-name="Summer Dress" data-price="1499"
-                data-img="https://via.placeholder.com/200">
-                <img src="https://via.placeholder.com/200" alt="Dress" />
-                <h3>Summer Dress</h3>
-                <p>₹1,499</p>
-                <button class="buy-btn">Buy Now</button>
+            <div class="product-card" data-category="trousers">
+                <img src="img1.jpg" alt="Trousers">
+                <p class="product-title">Linen Blend Trousers</p>
+                <p class="product-price">₹1,799</p>
             </div>
-            <div class="product-card" data-name="Casual T-Shirt" data-price="799"
-                data-img="https://via.placeholder.com/200">
-                <img src="https://via.placeholder.com/200" alt="T-shirt" />
-                <h3>Casual T-Shirt</h3>
-                <p>₹799</p>
-                <button class="buy-btn">Buy Now</button>
+            <div class="product-card" data-category="jeans">
+                <img src="img1.jpg" alt="Jeans">
+                <p class="product-title">Baggy Fit Jeans</p>
+                <p class="product-price">₹1,699</p>
             </div>
+            <div class="product-card" data-category="t-shirts">
+                <img src="img1.jpg" alt="T-Shirt">
+                <p class="product-title">Cotton Oversized Tee</p>
+                <p class="product-price">₹799</p>
+            </div>
+            <div class="product-card" data-category="shorts">
+                <img src="img1.jpg" alt="Shorts">
+                <p class="product-title">Chino Shorts</p>
+                <p class="product-price">₹899</p>
+            </div>
+            <!-- Add more cards as needed -->
         </div>
     </section>
 
@@ -102,10 +138,9 @@
     <!-- Chatbot Button -->
     <div id="chatbot-btn">🤖</div>
     <!-- Chatbot Window -->
-    <div id="chatbot-container" class="chat-hidden">
+    <div id="chatbot-container">
         <div class="chat-header">
             <h4>Nexora AI Assistant</h4>
-            <span id="chat-close">×</span>
         </div>
         <div id="chat-messages"></div>
         <input type="text" id="chat-input" placeholder="Ask about outfit..." />
