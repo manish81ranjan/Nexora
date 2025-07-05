@@ -256,3 +256,46 @@ function renderSuggestions(data, filter = 'all', sort = 'default') {
 
   attachBuyListeners();
 }
+const recData = [
+  { name: "Slim Fit Blazer", price: 2399, img: "img1.jpg", bodyType: "slim" },
+  { name: "Relaxed Fit Hoodie", price: 1899, img: "img2.jpg", bodyType: "bulky" },
+  { name: "Summer Shirt", price: 999, img: "img3.jpg", season: "summer" },
+  { name: "Winter Jacket", price: 2599, img: "img4.jpg", season: "winter" }
+];
+
+const container = document.getElementById("recommendations");
+
+if (!localStorage.getItem("userUploaded")) {
+  container.innerHTML = "<p>Please upload a photo first to get suggestions.</p>";
+} else {
+  const recommended = recData.filter(
+    (item) => item.season === "summer" || item.bodyType === "slim"
+  );
+
+  recommended.forEach((item) => {
+    const div = document.createElement("div");
+    div.className = "product-card";
+    div.innerHTML = `
+      <img src="${item.img}" alt="${item.name}" />
+      <h3>${item.name}</h3>
+      <p>₹${item.price}</p>
+      <button>Add to Cart</button>
+    `;
+    container.appendChild(div);
+  });
+}
+const userTags = ['summer', 'women', 'slim']; // mock from uploaded image
+
+const matches = recData.filter(product =>
+  userTags.every(tag => product.tags.includes(tag))
+);
+document.querySelectorAll(".buy-btn").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    const card = e.target.closest(".product-card");
+    const name = card.dataset.name;
+    const price = card.dataset.price;
+    const img = card.dataset.img;
+
+    addToCart({ name, price, img }); // use your existing function
+  });
+});
