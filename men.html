@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Men | Nexora</title>
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="cart.css">
+  <!-- <link rel="stylesheet" href="men.css"> -->
+  <!-- <link rel="stylesheet" href="men.css"> -->
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">NEXORA</div>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="men.html" class="active">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Summer</a></li>
+        <li><a href="#">Winter</a></li>
+        <li><a href="test.html">Try with AI</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+    <div class="cart-icon" id="cart-icon">🛒<span id="cart-count">0</span></div>
+  </header>
+
+  <!-- Banner -->
+  <section class="promo-banner">
+    <img src="images/promo-banner.jpg" alt="20% Off Promo">
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="featured-categories">
+    <h2>Featured Categories</h2>
+    <div class="category-grid">
+      <a href="#"><div class="category-card"><img src="img1.jpg"><span>DEAL OF THE DAY</span></div></a>
+      <a href="#"><div class="category-card"><img src="img1.jpg"><span>NEW ARRIVALS</span></div></a>
+      <a href="shirts.html"><div class="category-card"><img src="img1.jpg"><span>SHIRTS</span></div></a>
+      <a href="#"><div class="category-card"><img src="img/trousers.jpg"><span>TROUSERS</span></div></a>
+      <a href="#"><div class="category-card"><img src="img/cargo.jpg"><span>CARGO PANTS</span></div></a>
+      <a href="#"><div class="category-card"><img src="img/polo.jpg"><span>POLO T-SHIRTS</span></div></a>
+      <a href="#"><div class="category-card"><img src="img/oversized.jpg"><span>OVERSIZED TEES</span></div></a>
+      <a href="#"><div class="category-card"><img src="img/baggy.jpg"><span>BAGGY JEANS</span></div></a>
+      <a href="#"><div class="category-card"><img src="img/essentials.jpg"><span>ESSENTIALS</span></div></a>
+    </div>
+  </section>
+
+  <!-- Products -->
+    <section class="product-filter-section">
+        <h2>New and Popular</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">ALL</button>
+            <button class="filter-btn" data-category="shirts">SHIRTS</button>
+            <button class="filter-btn" data-category="trousers">TROUSERS</button>
+            <button class="filter-btn" data-category="t-shirts">T-SHIRTS</button>
+            <button class="filter-btn" data-category="jeans">JEANS</button>
+            <button class="filter-btn" data-category="shorts">SHORTS</button>
+        </div>
+
+        <div class="product-grid" id="filtered-products">
+            <div class="product-card" data-category="shirts">
+                <div  data-name="Slim Fit Shirt" data-price="1299"
+                    data-img="img1.jpg"></div>
+                <img src="img1.jpg" alt="Shirt">
+                <p class="product-title">Slim Fit Shirt</p>
+                <p class="product-price">₹1,299</p>
+                <button class="buy-btn">Add to Cart</button>
+            </div>
+            <div class="product-card" data-category="trousers">
+                <img src="img1.jpg" alt="Trousers">
+                <p class="product-title">Linen Blend Trousers</p>
+                <p class="product-price">₹1,799</p>
+            </div>
+            <div class="product-card" data-category="jeans">
+                <img src="img1.jpg" alt="Jeans">
+                <p class="product-title">Baggy Fit Jeans</p>
+                <p class="product-price">₹1,699</p>
+            </div>
+            <div class="product-card" data-category="t-shirts">
+                <img src="img1.jpg" alt="T-Shirt">
+                <p class="product-title">Cotton Oversized Tee</p>
+                <p class="product-price">₹799</p>
+            </div>
+            <div class="product-card" data-category="shorts">
+                <img src="img1.jpg" alt="Shorts">
+                <p class="product-title">Chino Shorts</p>
+                <p class="product-price">₹899</p>
+            </div>
+            <!-- Add more cards as needed -->
+        </div>
+    </section>
+<div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <span class="close-cart" id="close-cart">×</span>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer">
+      <p>Subtotal: ₹<span id="cart-subtotal">0</span></p>
+      <div class="cart-actions">
+        <button>Buy Now</button>
+        <button>Checkout</button>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Nexora. All rights reserved.</p>
+  </footer>
+
+  <script src="navbar.js"></script>
+  <script src="cart.js"></script>
+  <script src="men.js"></script> <!-- Filtering logic -->
+  <script src="script.js"></script>
+</body>
+
+</html>
