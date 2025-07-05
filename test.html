@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Chat Test | Nexora</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    #user-input {
+      display: flex;
+      margin-top: 20px;
+    }
+    #message {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    #send-btn {
+      padding: 10px 16px;
+      margin-left: 10px;
+      background-color: #ff416c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #send-btn:hover {
+      background-color: #e7335b;
+    }
+    #response {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #222;
+    }
+    .label {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Talk to Nexora AI</h1>
+
+    <div class="label">Ask something:</div>
+    <div id="user-input">
+      <input type="text" id="message" placeholder="e.g. Suggest a winter outfit..." />
+      <button id="send-btn">Send</button>
+    </div>
+
+    <div class="label" style="margin-top: 25px;">AI Reply:</div>
+    <div id="response">...</div>
+  </div>
+
+  <script>
+    const sendBtn = document.getElementById("send-btn");
+    const messageInput = document.getElementById("message");
+    const responseBox = document.getElementById("response");
+
+    sendBtn.addEventListener("click", async () => {
+      const message = messageInput.value.trim();
+      if (!message) return;
+
+      responseBox.textContent = "Thinking...";
+      
+      try {
+        const res = await fetch("http://localhost:3000/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await res.json();
+        responseBox.textContent = data.reply || "No response from AI.";
+      } catch (err) {
+        responseBox.textContent = "Error: Unable to reach AI server.";
+        console.error(err);
+      }
+    });
+  </script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
